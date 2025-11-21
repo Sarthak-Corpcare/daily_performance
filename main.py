@@ -23,7 +23,7 @@ today_str = datetime.now().strftime("%d-%B-%Y")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or ["*"] for testing only
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -446,6 +446,7 @@ async def process_excel(file:UploadFile=File(...)):
 @app.get("/")
 def root():
     return {"status": "ok", "message": "Excel API is running"}
+
 
 
 
