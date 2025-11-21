@@ -443,4 +443,9 @@ async def process_excel(file:UploadFile=File(...)):
     main_service(raw_file=temp_input.name, output_file=output_path, SHEETS_TO_IGNORE=SHEETS_TO_IGNORE,LOGO_FILENAME=LOGO_FILENAME)
     return FileResponse(path =output_path ,filename =f"Daily Performance Report {today_str}.xlsx",media_type= "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "Excel API is running"}
+
+
 
