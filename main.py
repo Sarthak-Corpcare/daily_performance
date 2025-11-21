@@ -1,15 +1,14 @@
 import uuid
 import tempfile
-from fastapi import  APIRouter,UploadFile, File
+from fastapi import  UploadFile, File
 from fastapi.responses import FileResponse
 import openpyxl
 from datetime import datetime
 import sys
-
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, APIRouter
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
 from openpyxl.drawing.image import Image
-from openpyxl.styles.builtins import output
 from openpyxl.utils import get_column_letter
 from config import RAW_TO_TEMPLATE_HEADER_MAP, MONTH_GROUPED_HEADERS, LOGO_FILENAME, \
     template_file,RATING_HEADERS, SHEETS_TO_IGNORE
@@ -20,6 +19,16 @@ from helper import update_as_on_date, find_header_row, get_month_id_for_column, 
 app= FastAPI(title="Excel Processor", version="1.0")
 
 today_str = datetime.now().strftime("%d-%B-%Y")
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["*"] for testing only
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # router= APIRouter()
 
 # --- GLOBAL STYLES ---
