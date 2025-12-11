@@ -10,11 +10,10 @@ from config import SHEETS_TO_IGNORE, LOGO_FILENAME
 today_str= datetime.now().strftime("%d-%B-%Y")
 
 st.set_page_config(
-    page_title="Daily Performance Processor",
+    page_title=" Daily Performance Excel Processor",
     page_icon="📊",
 )
 
-st.title("📊 Daily Performance Excel Processor")
 st.write("Upload your raw Daily Performance Excel file")
 
 uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
@@ -52,3 +51,4 @@ if uploaded_file is not None:
             except Exception as e:
 
                 st.error(f"An error occurred: {e}")
+
