@@ -30,7 +30,7 @@ if uploaded_file is not None:
             output_path = f"{tempfile.gettempdir()}/{uuid.uuid4()}.xlsx"
 
             try:
-                # 3) Call your core processing function
+                
                 excel_processing(
                     raw_file=temp_input_path,
                     output_file=output_path,
@@ -50,4 +50,5 @@ if uploaded_file is not None:
             except FileNotFoundError as e:
                 st.error(f"Required file not found: {e.filename}. Check your template/config.")
             except Exception as e:
+
                 st.error(f"An error occurred: {e}")
