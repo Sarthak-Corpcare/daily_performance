@@ -45,10 +45,10 @@ if uploaded_file is not None:
                     )
 
             except FileNotFoundError as e:
-                st.error(f"Required file not found: {e.filename}. Check your template/config.")
+                st.error(f"Required file not found: {e.filename}.")
             except Exception as e:
-
                 st.error(f"An error occurred: {e}")
+
 
 
 
